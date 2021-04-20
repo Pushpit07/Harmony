@@ -13,13 +13,13 @@ notes = {
     "G#": ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G']
 }
     
-# note1, note2, note3, note4, note5, note6 = input("Enter 6 notes: ").split()
-note1 = 'C'
-note2 = 'D'
-note3 = 'C#'
-note4 = 'A'
-note5 = 'G'
-note6 = 'F'
+note1, note2, note3, note4, note5, note6 = input("Enter 6 notes: ").split()
+# note1 = 'C'
+# note2 = 'D'
+# note3 = 'C#'
+# note4 = 'A'
+# note5 = 'G'
+# note6 = 'F'
 
 matched_notes_count = {
     "A": 0,
