@@ -1,0 +1,79 @@
+body {
+	background: -webkit-linear-gradient(
+		to right,
+		#eef2f3,
+		#8e9eab
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#eef2f3,
+		#8e9eab
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	height: 34px;
+	border-radius: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #d1d0d0;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #3a3a3a;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: #39454e;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #39454e;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(45px);
+	-ms-transform: translateX(45px);
+	transform: translateX(45px);
+	background-color: white;
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+.note {
+	color: #39454e;
+	font-size: 1.5em;
+}
