@@ -1,4 +1,4 @@
-notes = {
+chords_to_notes_mappings = {
     "A": ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#', 'A'],
     "A#": ['A#', 'C', 'D', 'D#', 'F', 'G', 'A', 'A#'],
     "B": ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#', 'B'],
@@ -36,7 +36,7 @@ matched_notes_count = {
     "G#": 0
 }
 
-for key, value in notes.items():
+for key, value in chords_to_notes_mappings.items():
     if note1 in value:
         matched_notes_count[key] += 1
     if note2 in value:

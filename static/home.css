@@ -77,3 +77,16 @@ input:checked + .slider:before {
 	color: #39454e;
 	font-size: 1.5em;
 }
+
+.selected_note {
+	color: #39454e;
+	font-size: 28px;
+	margin-right: 25px;
+}
+
+.selected_text {
+	color: #39454e;
+	font-size: 28px;
+	font-weight: 600;
+	margin-right: 20px;
+}
