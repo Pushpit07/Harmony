@@ -1,3 +1,4 @@
+
 function getSelectedNotes() {
     var notes = [];
     var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -75,3 +76,65 @@ function getCookie(name) {
 //         getSelectedNotes();
 //     }
 // }
+
+function disp(result) {
+    const spaceBtn = document.querySelector('#space');
+    const backspaceBtn = document.querySelector('#Backspace');
+    const display = document.querySelector('.display');
+
+    form.textarea.value = form.textarea.value + result;
+    spaceBtn.onclick = (() => {
+        form.textarea.value += " ";
+    });
+    backspaceBtn.onclick = (() => {
+        text_before = form.textarea.value.toString();
+        form.textarea.value = text_before.slice(0, text_before.length - 1);
+    });
+    display.ondblclick = (() => {
+        form.textarea.value = "";
+    });
+}
+
+// function keypress(e) {
+//     var keynum;
+
+//     if (window.event) { // IE                  
+//         keynum = e.keyCode;
+//     } else if (e.which) { // Netscape/Firefox/Opera                 
+//         keynum = e.which;
+//     }
+
+//     console.log(String.fromCharCode(keynum));
+// }
+
+
+window.addEventListener('keydown', function (event) {
+    event.preventDefault();
+
+    if (event.keyCode === 32) {
+        document.getElementById('space').classList.add("keyPressed");
+    } else if (event.keyCode === 8) {
+        document.getElementById('Backspace').classList.add("backspace_pressed");
+        document.getElementById('back_arrow').classList.add("backspace_arrow_pressed");
+    }
+    else {
+        document.getElementById(event.key).classList.add("keyPressed");
+    }
+}, false);
+
+window.addEventListener('keyup', function (event) {
+    event.preventDefault();
+
+    if (event.keyCode === 32) {
+        document.getElementById('space').click();
+        document.getElementById('space').classList.remove("keyPressed");
+    } else if (event.keyCode === 8) {
+        document.getElementById('Backspace').click();
+        document.getElementById('Backspace').classList.remove("backspace_pressed");
+        document.getElementById('back_arrow').classList.remove("backspace_arrow_pressed");
+    }
+    else {
+        document.getElementById(event.key).click();
+        document.getElementById(event.key).classList.remove("keyPressed");
+    }
+}, false);

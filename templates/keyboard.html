@@ -2,43 +2,57 @@
 
 <div class="keyboard_screen">
 	<div class="container">
-		<div class="wrapper">
-			<div class="keys">
-				<input type="button" value="q" />
-				<input type="button" value="w" />
-				<input type="button" value="e" />
-				<input type="button" value="r" />
-				<input type="button" value="t" />
-				<input type="button" value="y" />
-				<input type="button" value="u" />
-				<input type="button" value="i" />
-				<input type="button" value="o" />
-				<input type="button" value="p" />
+		<form class="wrapper" name="form">
+			<div class="display">
+				<textarea name="textarea" cols="30" rows="10" spellcheck="false" autofocus></textarea>
 			</div>
 			<div class="keys">
-				<input type="button" value="a" />
-				<input type="button" value="s" />
-				<input type="button" value="d" />
-				<input type="button" value="f" />
-				<input type="button" value="g" />
-				<input type="button" value="h" />
-				<input type="button" value="j" />
-				<input type="button" value="k" />
-				<input type="button" value="l" />
+				<input type="button" id="q" value="q" name="q" onclick="disp(q.value)" />
+				<input type="button" id="w" value="w" name="w" onclick="disp(w.value)" />
+				<input type="button" id="e" value="e" name="e" onclick="disp(e.value)" />
+				<input type="button" id="r" value="r" name="r" onclick="disp(r.value)" />
+				<input type="button" id="t" value="t" name="t" onclick="disp(t.value)" />
+				<input type="button" id="y" value="y" name="y" onclick="disp(y.value)" />
+				<input type="button" id="u" value="u" name="u" onclick="disp(u.value)" />
+				<input type="button" id="i" value="i" name="i" onclick="disp(i.value)" />
+				<input type="button" id="o" value="o" name="o" onclick="disp(o.value)" />
+				<input type="button" id="p" value="p" name="p" onclick="disp(p.value)" />
 			</div>
 			<div class="keys">
-				<input type="button" value="z" />
-				<input type="button" value="x" />
-				<input type="button" value="c" />
-				<input type="button" value="v" />
-				<input type="button" value="b" />
-				<input type="button" value="n" />
-				<input type="button" value="m" />
+				<input type="button" id="a" value="a" name="a" onclick="disp(a.value)" />
+				<input type="button" id="s" value="s" name="s" onclick="disp(s.value)" />
+				<input type="button" id="d" value="d" name="d" onclick="disp(d.value)" />
+				<input type="button" id="f" value="f" name="f" onclick="disp(f.value)" />
+				<input type="button" id="g" value="g" name="g" onclick="disp(g.value)" />
+				<input type="button" id="h" value="h" name="h" onclick="disp(h.value)" />
+				<input type="button" id="j" value="j" name="j" onclick="disp(j.value)" />
+				<input type="button" id="k" value="k" name="k" onclick="disp(k.value)" />
+				<input type="button" id="l" value="l" name="l" onclick="disp(l.value)" />
 			</div>
 			<div class="keys">
-				<input type="button" value="space" />
+				<input type="button" id="z" value="z" name="z" onclick="disp(z.value)" />
+				<input type="button" id="x" value="x" name="x" onclick="disp(x.value)" />
+				<input type="button" id="c" value="c" name="c" onclick="disp(c.value)" />
+				<input type="button" id="v" value="v" name="v" onclick="disp(v.value)" />
+				<input type="button" id="b" value="b" name="b" onclick="disp(b.value)" />
+				<input type="button" id="n" value="n" name="n" onclick="disp(n.value)" />
+				<input type="button" id="m" value="m" name="m" onclick="disp(m.value)" />
 			</div>
-		</div>
+			<div class="keys">
+				<input type="button" id="space" value="space" />
+				<span class="backspace_span">
+					<i id="back_arrow" class="fas fa-chevron-left fa-xs left_arrow"></i>
+					<input
+						type="button"
+						class="backspace"
+						id="Backspace"
+						value="Backspace"
+						name="Backspace"
+						onclick="disp(Backspace.value)"
+					/>
+				</span>
+			</div>
+		</form>
 	</div>
 </div>
 
