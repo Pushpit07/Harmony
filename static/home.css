@@ -24,6 +24,11 @@ body {
 	background: var(--theme-background);
 }
 
+.toggle_chords_container {
+	width: 90%;
+	padding-top: 40px !important;
+}
+
 .switch {
 	position: relative;
 	display: inline-block;
@@ -48,7 +53,8 @@ body {
 	right: 0;
 	bottom: 0;
 	background-color: var(--theme-background);
-	box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+	box-shadow: -4px -4px 6px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288);
+	/* box-shadow: -6px -6px 18px 0 rgba(255, 255, 255, 0.7), 6px 6px 18px 0 rgba(0, 0, 0, 0.2); */
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
 }
@@ -80,6 +86,7 @@ input:checked + .slider:before {
 	-ms-transform: translateX(45px);
 	transform: translateX(45px);
 	background-color: var(--theme-background);
+	box-shadow: -4px -4px 8px var(--theme-color), 3px 3px 4px rgba(94, 104, 121, 0.288);
 }
 
 /* Rounded sliders */
@@ -89,6 +96,7 @@ input:checked + .slider:before {
 
 .slider.round:before {
 	border-radius: 50%;
+	box-shadow: -0.5px -0.5px 0.6px var(--theme-color), 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
 .note {
@@ -98,27 +106,89 @@ input:checked + .slider:before {
 	text-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
 }
 
+.text_vertical_center {
+	margin-top: 0 auto !important;
+	margin-top: 8px !important;
+}
+
+.selected_notes_wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: left;
+	width: 100%;
+}
+
 .selected_note {
 	color: #3b3b3b;
 	font-family: "Lato", sans-serif;
-	font-size: 28px;
-	margin-right: 25px;
-	text-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.188);
+}
+
+.selected_note_box {
+	height: 60px;
+	width: 60px;
+	border-radius: 50px;
+	border: none;
+	outline: none;
+	background-color: var(--theme-background);
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	/* box-shadow: -4px -4px 6px 0px #fff9, -4px -4px 5px 0px #fff9, 4px 4px 6px 0px #0002, 4px 4px 5px 0px #0001,
+		inset 0px 0px 0px 0px #fff9, inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+		inset 0px 0px 0px 0px #0001; */
+	box-shadow: -3px -3px 7px #ffffff73, 3px 3px 6px rgba(94, 104, 121, 0.288);
+	transition: box-shadow 0.6 cubic-bezier(0.79, 0.21, 0.06, 0.81);
+	font-size: 20px;
+	text-decoration: none;
+	margin-right: 30px;
+}
+
+.possible_chord_box {
+	background-color: var(--theme-color);
+}
+
+.possible_chord_box:hover {
+	background-color: var(--theme-background);
+}
+
+.possible_chord_box:hover > span {
+	color: var(--theme-color);
+}
+
+.possible_chord {
+	color: var(--theme-background);
+}
+
+.selected_note_box:hover {
+	box-shadow: 2px 2px 4px 0px rgba(255, 255, 255, 0.5), -2px -2px 4px 0px rgba(116, 125, 136, 0.2),
+		inset -2px -2px 4px 0px rgba(255, 255, 255, 0.3), inset 2px 2px 4px 0px rgba(116, 125, 136, 0.3);
+}
+
+.selected_note_box:focus {
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-shadow: -4px -4px 6px 0px rgba(116, 125, 136, 0.2), 4px 4px 6px 0px rgba(255, 255, 255, 0.5),
+		inset 4px 4px 6px 0px rgba(116, 125, 136, 0.3), inset -4px -4px 6px 0px rgba(255, 255, 255, 0.3);
 }
 
 .selected_text {
 	/* color: #39454e; */
 	color: #3b3b3b;
+	margin-left: 50px;
 	font-family: "Lato", sans-serif;
 	font-size: 28px;
-	font-weight: 600;
-	margin-right: 20px;
+	font-weight: 500;
 	text-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.188);
 }
 
 /* ================================================================= */
 /* ================================================================= */
 /*  Keyboard Design */
+/* ================================================================= */
+/* ================================================================= */
 
 .keyboard_screen {
 	display: flex;
@@ -222,4 +292,25 @@ input:checked + .slider:before {
 	color: var(--theme-color);
 	background: var(--theme-background);
 	box-shadow: inset -3px -3px 7px #ffffff73, inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+}
+
+/* ================================================================= */
+/* ================================================================= */
+/*  Navbar Design */
+/* ================================================================= */
+/* ================================================================= */
+
+.nav_container {
+	margin-top: 50px;
+	width: 90%;
+	color: #3b3b3b;
+	padding: 15px;
+	padding-left: 30px;
+	border-radius: 8px;
+	background: var(--theme-background);
+	box-shadow: -4px -4px 8px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+}
+
+.navbar-brand {
+	font-family: "Lato", sans-serif;
 }

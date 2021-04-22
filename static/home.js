@@ -11,7 +11,7 @@ function getSelectedNotes() {
     document.getElementById('selected_notes').innerHTML = '';
     var selectedNotesContent = '';
     for (var i = 0; i < notes.length; i++) {
-        selectedNotesContent += '<span class="selected_note">' + notes[i] + '</span>';
+        selectedNotesContent += '<a href="#" class="selected_note_box"><div class="selected_note">' + notes[i] + '</div></a>';
     }
     $("#selected_notes").append(selectedNotesContent);
 
@@ -36,9 +36,9 @@ function sendNotes(notes) {
             $("#possible_chords").html('');
             var possContent = '';
             for (var i = 0; i < response.possible_chords.length; i++) {
-                possContent += '<span class="selected_note">' + response.possible_chords[i] + '</span>';
+                possContent += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_chords[i] + '</span></a>';
             }
-            possContent += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
+            // possContent += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
             $("#possible_chords").append(possContent);
         },
         error: function (err) {

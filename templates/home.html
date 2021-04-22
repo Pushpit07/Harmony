@@ -128,203 +128,229 @@
 </div>
 {% endcomment %}
 
-<div class="row mt-5">
-	<div class="offset-1 col-md-10 mt-5">
-		<div class="row m-auto mt-5">
-			<div class="offset-1 col-md-1 m-auto note" align="center">C</div>
-			<div class="offset-1 col-md-1 m-auto note" align="center">C#</div>
-			<div class="offset-1 col-md-1 m-auto note" align="center">D</div>
-			<div class="offset-1 col-md-1 m-auto note" align="center">D#</div>
-			<div class="offset-1 col-md-1 m-auto note" align="center">E</div>
-			<div class="offset-1 col-md-1 m-auto note" align="center">F</div>
-		</div>
+<div class="toggle_chords_container mx-auto">
+	<div class="row m-auto mt-5">
+		<div class="offset-1 col-md-1 m-auto note" align="center">C</div>
+		<div class="offset-1 col-md-1 m-auto note" align="center">C#</div>
+		<div class="offset-1 col-md-1 m-auto note" align="center">D</div>
+		<div class="offset-1 col-md-1 m-auto note" align="center">D#</div>
+		<div class="offset-1 col-md-1 m-auto note" align="center">E</div>
+		<div class="offset-1 col-md-1 m-auto note" align="center">F</div>
+	</div>
 
-		<div class="row m-auto mt-2">
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="C" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="C#" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="D" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="D#" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="E" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="F" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
+	<div class="row m-auto mt-2">
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="C" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
 		</div>
-
-		<div class="row m-auto mt-5">
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">F#</div>
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">G</div>
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">G#</div>
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">A</div>
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">A#</div>
-			<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">B</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="C#" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
 		</div>
-
-		<div class="row m-auto mt-2">
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="F#" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="G" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="G#" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="A" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="A#" type="checkbox" onchange="getSelectedNotes()" />
-					<span class="slider round"></span>
-				</label>
-			</div>
-			<div class="col-md-1 m-auto">
-				<label class="switch">
-					<input id="B" type="checkbox" onchange="getSelectedNotes()" checked />
-					<span class="slider round"></span>
-				</label>
-			</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="D" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="D#" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="E" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="F" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
 		</div>
 	</div>
-</div>
 
-<div class="row mt-5">
-	<div class="offset-2 col-10 mt-5" align="left">
-		<span class="selected_text">Selected notes: </span>
-		<span id="selected_notes">
-			<span class="selected_note">C</span>
-			<span class="selected_note">D</span>
-			<span class="selected_note">D#</span>
-			<span class="selected_note">F</span>
-			<span class="selected_note">A</span>
-			<span class="selected_note">B</span>
-		</span>
+	<div class="row m-auto mt-5">
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">F#</div>
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">G</div>
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">G#</div>
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">A</div>
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">A#</div>
+		<div class="offset-1 col-md-1 m-auto mt-4 note" align="center">B</div>
 	</div>
+
+	<div class="row m-auto mt-2">
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="F#" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="G" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="G#" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="A" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="A#" type="checkbox" onchange="getSelectedNotes()" />
+				<span class="slider round"></span>
+			</label>
+		</div>
+		<div class="col-md-1 m-auto">
+			<label class="switch">
+				<input id="B" type="checkbox" onchange="getSelectedNotes()" checked />
+				<span class="slider round"></span>
+			</label>
+		</div>
+	</div>
+
 	<br />
-</div>
-
-<div class="row mt-3">
-	<div class="offset-2 col-10 mt-5" align="left">
-		<span class="selected_text">Possible Chords are: </span>
-		<span id="possible_chords">
-			<span class="selected_note">A#</span>
-			<span class="selected_note">C</span>
-			<span class="selected_note">G</span>
-			<span class="selected_note">with 5 notes matching</span>
-		</span>
-	</div>
 	<br />
-</div>
 
-<div class="keyboard_screen">
-	<div class="container">
-		<form class="wrapper" name="form">
-			<div class="display">
-				<textarea name="textarea" cols="30" rows="10" spellcheck="false"></textarea>
-			</div>
+	<div class="row mt-5">
+		<div class="col-3 mt-5 text_vertical_center">
+			<span class="selected_text">Selected notes: </span>
+		</div>
+		<div class="col-9">
+			<span id="selected_notes" class="selected_notes_wrapper">
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">C</span>
+				</a>
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">D</span>
+				</a>
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">D#</span>
+				</a>
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">F</span>
+				</a>
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">A</span>
+				</a>
+				<a href="#" class="selected_note_box">
+					<span class="selected_note">B</span>
+				</a>
+			</span>
+		</div>
+		<br />
+	</div>
 
-			{% comment %}
-			<div class="keys">
-				<input type="button" id="1" value="1" name="one" onclick="disp(one.value)" />
-				<input type="button" id="2" value="2" name="two" onclick="disp(two.value)" />
-				<input type="button" id="3" value="3" name="three" onclick="disp(three.value)" />
-				<input type="button" id="4" value="4" name="four" onclick="disp(four.value)" />
-				<input type="button" id="5" value="5" name="five" onclick="disp(five.value)" />
-				<input type="button" id="6" value="6" name="six" onclick="disp(six.value)" />
-				<input type="button" id="7" value="7" name="seven" onclick="disp(seven.value)" />
-				<input type="button" id="8" value="8" name="eight" onclick="disp(eight.value)" />
-				<input type="button" id="9" value="9" name="nine" onclick="disp(nine.value)" />
-				<input type="button" id="0" value="0" name="zero" onclick="disp(zero.value)" />
-				<span>
-					<i id="back_arrow" class="fas fa-chevron-left fa-xs left_arrow"></i>
-					<input
-						type="button"
-						class="backspace"
-						id="Backspace"
-						value="Backspace"
-						name="Backspace"
-						onclick="disp(Backspace.value)"
-					/>
-				</span>
-			</div>
-			{% endcomment %}
+	<br />
+	<br />
 
-			<div class="keys">
-				<input type="button" id="q" value="q" name="q" onclick="disp(q.value)" />
-				<input type="button" id="w" value="w" name="w" onclick="disp(w.value)" />
-				<input type="button" id="e" value="e" name="e" onclick="disp(e.value)" />
-				<input type="button" id="r" value="r" name="r" onclick="disp(r.value)" />
-				<input type="button" id="t" value="t" name="t" onclick="disp(t.value)" />
-				<input type="button" id="y" value="y" name="y" onclick="disp(y.value)" />
-				<input type="button" id="u" value="u" name="u" onclick="disp(u.value)" />
-				<input type="button" id="i" value="i" name="i" onclick="disp(i.value)" />
-				<input type="button" id="o" value="o" name="o" onclick="disp(o.value)" />
-				<input type="button" id="p" value="p" name="p" onclick="disp(p.value)" />
-			</div>
-			<div class="keys">
-				<input type="button" id="a" value="a" name="a" onclick="disp(a.value)" />
-				<input type="button" id="s" value="s" name="s" onclick="disp(s.value)" />
-				<input type="button" id="d" value="d" name="d" onclick="disp(d.value)" />
-				<input type="button" id="f" value="f" name="f" onclick="disp(f.value)" />
-				<input type="button" id="g" value="g" name="g" onclick="disp(g.value)" />
-				<input type="button" id="h" value="h" name="h" onclick="disp(h.value)" />
-				<input type="button" id="j" value="j" name="j" onclick="disp(j.value)" />
-				<input type="button" id="k" value="k" name="k" onclick="disp(k.value)" />
-				<input type="button" id="l" value="l" name="l" onclick="disp(l.value)" />
-			</div>
-			<div class="keys">
-				<input type="button" id="z" value="z" name="z" onclick="disp(z.value)" />
-				<input type="button" id="x" value="x" name="x" onclick="disp(x.value)" />
-				<input type="button" id="c" value="c" name="c" onclick="disp(c.value)" />
-				<input type="button" id="v" value="v" name="v" onclick="disp(v.value)" />
-				<input type="button" id="b" value="b" name="b" onclick="disp(b.value)" />
-				<input type="button" id="n" value="n" name="n" onclick="disp(n.value)" />
-				<input type="button" id="m" value="m" name="m" onclick="disp(m.value)" />
-			</div>
-			<div class="keys">
-				<input type="button" id="space" value="space" />
-			</div>
-		</form>
+	<div class="row mt-3">
+		<div class="col-3 mt-5 text_vertical_center">
+			<span class="selected_text">Possible Chords: </span>
+		</div>
+		<div class="col-9">
+			<span id="possible_chords" class="selected_notes_wrapper">
+				<a href="#" class="selected_note_box possible_chord_box">
+					<span class="selected_note possible_chord">A#</span>
+				</a>
+				<a href="#" class="selected_note_box possible_chord_box">
+					<span class="selected_note possible_chord">C</span>
+				</a>
+				<a href="#" class="selected_note_box possible_chord_box">
+					<span class="selected_note possible_chord">G</span>
+				</a>
+				{% comment %} <span class="selected_note">with 5 notes matching</span> {% endcomment %}
+			</span>
+		</div>
+		<br />
+	</div>
+
+	<div class="keyboard_screen">
+		<div class="container">
+			<form class="wrapper" name="form">
+				<div class="display">
+					<textarea name="textarea" cols="30" rows="10" spellcheck="false"></textarea>
+				</div>
+
+				{% comment %}
+				<div class="keys">
+					<input type="button" id="1" value="1" name="one" onclick="disp(one.value)" />
+					<input type="button" id="2" value="2" name="two" onclick="disp(two.value)" />
+					<input type="button" id="3" value="3" name="three" onclick="disp(three.value)" />
+					<input type="button" id="4" value="4" name="four" onclick="disp(four.value)" />
+					<input type="button" id="5" value="5" name="five" onclick="disp(five.value)" />
+					<input type="button" id="6" value="6" name="six" onclick="disp(six.value)" />
+					<input type="button" id="7" value="7" name="seven" onclick="disp(seven.value)" />
+					<input type="button" id="8" value="8" name="eight" onclick="disp(eight.value)" />
+					<input type="button" id="9" value="9" name="nine" onclick="disp(nine.value)" />
+					<input type="button" id="0" value="0" name="zero" onclick="disp(zero.value)" />
+					<span>
+						<i id="back_arrow" class="fas fa-chevron-left fa-xs left_arrow"></i>
+						<input
+							type="button"
+							class="backspace"
+							id="Backspace"
+							value="Backspace"
+							name="Backspace"
+							onclick="disp(Backspace.value)"
+						/>
+					</span>
+				</div>
+				{% endcomment %}
+
+				<div class="keys">
+					<input type="button" id="q" value="q" name="q" onclick="disp(q.value)" />
+					<input type="button" id="w" value="w" name="w" onclick="disp(w.value)" />
+					<input type="button" id="e" value="e" name="e" onclick="disp(e.value)" />
+					<input type="button" id="r" value="r" name="r" onclick="disp(r.value)" />
+					<input type="button" id="t" value="t" name="t" onclick="disp(t.value)" />
+					<input type="button" id="y" value="y" name="y" onclick="disp(y.value)" />
+					<input type="button" id="u" value="u" name="u" onclick="disp(u.value)" />
+					<input type="button" id="i" value="i" name="i" onclick="disp(i.value)" />
+					<input type="button" id="o" value="o" name="o" onclick="disp(o.value)" />
+					<input type="button" id="p" value="p" name="p" onclick="disp(p.value)" />
+				</div>
+				<div class="keys">
+					<input type="button" id="a" value="a" name="a" onclick="disp(a.value)" />
+					<input type="button" id="s" value="s" name="s" onclick="disp(s.value)" />
+					<input type="button" id="d" value="d" name="d" onclick="disp(d.value)" />
+					<input type="button" id="f" value="f" name="f" onclick="disp(f.value)" />
+					<input type="button" id="g" value="g" name="g" onclick="disp(g.value)" />
+					<input type="button" id="h" value="h" name="h" onclick="disp(h.value)" />
+					<input type="button" id="j" value="j" name="j" onclick="disp(j.value)" />
+					<input type="button" id="k" value="k" name="k" onclick="disp(k.value)" />
+					<input type="button" id="l" value="l" name="l" onclick="disp(l.value)" />
+				</div>
+				<div class="keys">
+					<input type="button" id="z" value="z" name="z" onclick="disp(z.value)" />
+					<input type="button" id="x" value="x" name="x" onclick="disp(x.value)" />
+					<input type="button" id="c" value="c" name="c" onclick="disp(c.value)" />
+					<input type="button" id="v" value="v" name="v" onclick="disp(v.value)" />
+					<input type="button" id="b" value="b" name="b" onclick="disp(b.value)" />
+					<input type="button" id="n" value="n" name="n" onclick="disp(n.value)" />
+					<input type="button" id="m" value="m" name="m" onclick="disp(m.value)" />
+				</div>
+				<div class="keys">
+					<input type="button" id="space" value="space" />
+				</div>
+			</form>
+		</div>
 	</div>
 </div>
 {% endblock %}
