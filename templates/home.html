@@ -285,7 +285,16 @@
 		<div class="container">
 			<form class="wrapper" name="form">
 				<div class="display">
-					<textarea name="textarea" cols="30" rows="10" spellcheck="false"></textarea>
+					<textarea
+						name="textarea"
+						cols="30"
+						id="test"
+						rows="10"
+						spellcheck="false"
+						onfocus="this.value = this.value"
+					>
+C  D  D#  F  A  B  </textarea
+					>
 				</div>
 
 				{% comment %}
@@ -315,36 +324,47 @@
 				{% endcomment %}
 
 				<div class="keys">
-					<input type="button" id="q" value="q" name="q" onclick="disp(q.value)" />
-					<input type="button" id="w" value="w" name="w" onclick="disp(w.value)" />
-					<input type="button" id="e" value="e" name="e" onclick="disp(e.value)" />
-					<input type="button" id="r" value="r" name="r" onclick="disp(r.value)" />
-					<input type="button" id="t" value="t" name="t" onclick="disp(t.value)" />
-					<input type="button" id="y" value="y" name="y" onclick="disp(y.value)" />
-					<input type="button" id="u" value="u" name="u" onclick="disp(u.value)" />
-					<input type="button" id="i" value="i" name="i" onclick="disp(i.value)" />
-					<input type="button" id="o" value="o" name="o" onclick="disp(o.value)" />
-					<input type="button" id="p" value="p" name="p" onclick="disp(p.value)" />
+					<input type="button" id="q" value="q" name="q" class="disabled_key" />
+					<input type="button" id="w" value="C#" name="w" onclick="disp(w.value)" class="sharp_note_key" />
+					<input type="button" id="e" value="D#" name="e" onclick="disp(e.value)" class="sharp_note_key" />
+					<input type="button" id="r" value="r" name="r" class="disabled_key" />
+					<input type="button" id="t" value="F#" name="t" onclick="disp(t.value)" class="sharp_note_key" />
+					<input type="button" id="y" value="G#" name="y" onclick="disp(y.value)" class="sharp_note_key" />
+					<input type="button" id="u" value="A#" name="u" onclick="disp(u.value)" class="sharp_note_key" />
+					<input type="button" id="i" value="i" name="i" class="disabled_key" />
+					<input type="button" id="o" value="o" name="o" class="disabled_key" />
+					<input type="button" id="p" value="p" name="p" class="disabled_key" />
 				</div>
 				<div class="keys">
-					<input type="button" id="a" value="a" name="a" onclick="disp(a.value)" />
-					<input type="button" id="s" value="s" name="s" onclick="disp(s.value)" />
-					<input type="button" id="d" value="d" name="d" onclick="disp(d.value)" />
-					<input type="button" id="f" value="f" name="f" onclick="disp(f.value)" />
-					<input type="button" id="g" value="g" name="g" onclick="disp(g.value)" />
-					<input type="button" id="h" value="h" name="h" onclick="disp(h.value)" />
-					<input type="button" id="j" value="j" name="j" onclick="disp(j.value)" />
-					<input type="button" id="k" value="k" name="k" onclick="disp(k.value)" />
-					<input type="button" id="l" value="l" name="l" onclick="disp(l.value)" />
+					<input type="button" id="a" value="C" name="a" onclick="disp(a.value)" />
+					<input type="button" id="s" value="D" name="s" onclick="disp(s.value)" />
+					<input type="button" id="d" value="E" name="d" onclick="disp(d.value)" />
+					<input type="button" id="f" value="F" name="f" onclick="disp(f.value)" />
+					<input type="button" id="g" value="G" name="g" onclick="disp(g.value)" />
+					<input type="button" id="h" value="A" name="h" onclick="disp(h.value)" />
+					<input type="button" id="j" value="B" name="j" onclick="disp(j.value)" />
+					<input type="button" id="k" value="C" name="k" onclick="disp(k.value)" />
+					<input type="button" id="l" value="l" name="l" class="disabled_key" />
 				</div>
 				<div class="keys">
-					<input type="button" id="z" value="z" name="z" onclick="disp(z.value)" />
-					<input type="button" id="x" value="x" name="x" onclick="disp(x.value)" />
-					<input type="button" id="c" value="c" name="c" onclick="disp(c.value)" />
-					<input type="button" id="v" value="v" name="v" onclick="disp(v.value)" />
-					<input type="button" id="b" value="b" name="b" onclick="disp(b.value)" />
-					<input type="button" id="n" value="n" name="n" onclick="disp(n.value)" />
-					<input type="button" id="m" value="m" name="m" onclick="disp(m.value)" />
+					<input type="button" id="z" value="z" name="z" class="disabled_key" />
+					<input type="button" id="x" value="x" name="x" class="disabled_key" />
+					<input type="button" id="c" value="c" name="c" class="disabled_key" />
+					<input type="button" id="v" value="v" name="v" class="disabled_key" />
+					<input type="button" id="b" value="b" name="b" class="disabled_key" />
+					<input type="button" id="n" value="n" name="n" class="disabled_key" />
+					<input type="button" id="m" value="m" name="m" class="disabled_key" />
+					<span>
+						<i id="back_arrow" class="fas fa-chevron-left fa-xs left_arrow"></i>
+						<input
+							type="button"
+							class="backspace"
+							id="Backspace"
+							value="Backspace"
+							name="Backspace"
+							onclick="disp(Backspace.value)"
+						/>
+					</span>
 				</div>
 				<div class="keys">
 					<input type="button" id="space" value="space" />

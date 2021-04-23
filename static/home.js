@@ -1,4 +1,3 @@
-
 function getSelectedNotes() {
     var notes = [];
     var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -7,17 +6,18 @@ function getSelectedNotes() {
         notes.push(checkbox.id);
     }
     console.log('Notes :', notes)
+    form.textarea.value = ""
 
     document.getElementById('selected_notes').innerHTML = '';
     var selectedNotesContent = '';
     for (var i = 0; i < notes.length; i++) {
         selectedNotesContent += '<a href="#" class="selected_note_box"><div class="selected_note">' + notes[i] + '</div></a>';
+        form.textarea.value = form.textarea.value + notes[i] + "  ";
     }
     $("#selected_notes").append(selectedNotesContent);
 
     sendNotes(notes);
 }
-
 
 function sendNotes(notes) {
     var csrftoken = getCookie('csrftoken');
@@ -82,13 +82,31 @@ function disp(result) {
     const backspaceBtn = document.querySelector('#Backspace');
     const display = document.querySelector('.display');
 
-    form.textarea.value = form.textarea.value + result;
+
+    form.textarea.value = form.textarea.value + result + "  ";
+
     spaceBtn.onclick = (() => {
         form.textarea.value += " ";
     });
     backspaceBtn.onclick = (() => {
         text_before = form.textarea.value.toString();
-        form.textarea.value = text_before.slice(0, text_before.length - 1);
+
+        // var two_spaces = /\s\s/;
+        var single_letter = /[a-zA-Z]/;
+        var space_letter = /\s[a-zA-Z]/;
+        var sharp_note = /[a-zA-Z][#]/;
+
+        if (text_before.slice(text_before.length - 2, text_before.length) === "  ") {
+            form.textarea.value = text_before.slice(0, text_before.length - 2);
+        } else if (space_letter.test(text_before.slice(text_before.length - 2, text_before.length))) {
+            form.textarea.value = text_before.slice(0, text_before.length - 1);
+        } else if (sharp_note.test(text_before.slice(text_before.length - 2, text_before.length))) {
+            form.textarea.value = text_before.slice(0, text_before.length - 2);
+        } else if (single_letter.test(text_before.slice(text_before.length - 1, text_before.length))) {
+            form.textarea.value = text_before.slice(0, text_before.length - 1);
+        } else {
+            form.textarea.value = text_before.slice(0, text_before.length - 1);
+        }
     });
     display.ondblclick = (() => {
         form.textarea.value = "";
@@ -116,6 +134,10 @@ window.addEventListener('keydown', function (event) {
     } else if (event.keyCode === 8) {
         document.getElementById('Backspace').classList.add("backspace_pressed");
         document.getElementById('back_arrow').classList.add("backspace_arrow_pressed");
+    } else if (document.getElementById(event.key).classList.contains("disabled_key")) {
+        // don't do anything
+    } else if (document.getElementById(event.key).classList.contains("sharp_note_key")) {
+        document.getElementById(event.key).classList.add("sharp_note_key_pressed");
     }
     else {
         document.getElementById(event.key).classList.add("keyPressed");
@@ -132,6 +154,11 @@ window.addEventListener('keyup', function (event) {
         document.getElementById('Backspace').click();
         document.getElementById('Backspace').classList.remove("backspace_pressed");
         document.getElementById('back_arrow').classList.remove("backspace_arrow_pressed");
+    } else if (document.getElementById(event.key).classList.contains("disabled_key")) {
+        // don't do anything
+    } else if (document.getElementById(event.key).classList.contains("sharp_note_key")) {
+        document.getElementById(event.key).click();
+        document.getElementById(event.key).classList.remove("sharp_note_key_pressed");
     }
     else {
         document.getElementById(event.key).click();
