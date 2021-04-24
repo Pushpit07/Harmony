@@ -83,29 +83,73 @@ function disp(result) {
     const display = document.querySelector('.display');
 
 
-    form.textarea.value = form.textarea.value + result + "  ";
+    if (result !== "") {
+        text_earlier = form.textarea.value.toString();
+
+        splitted_text_earlier = text_earlier.split("  ");
+
+        formatted_notes_earlier = []
+        for (i = 0; i < (splitted_text_earlier.length) - 1; i++) {
+            formatted_notes_earlier.push(splitted_text_earlier[i]);
+        }
+
+        if (formatted_notes_earlier.indexOf(result) > -1) {
+            //do nothing
+        } else {
+            form.textarea.value = form.textarea.value + result + "  ";
+        }
+    }
+
+    text_before = form.textarea.value.toString();
+
+    splitted_text = text_before.split("  ");
+
+    formatted_notes = []
+    for (i = 0; i < (splitted_text.length) - 1; i++) {
+        formatted_notes.push(splitted_text[i]);
+    }
+
+    for (i = 0; i < formatted_notes.length; i++) {
+        document.getElementById(formatted_notes[i]).checked = true;
+        getSelectedNotes();
+    }
 
     spaceBtn.onclick = (() => {
-        form.textarea.value += " ";
+        form.textarea.value += "  ";
     });
     backspaceBtn.onclick = (() => {
         text_before = form.textarea.value.toString();
-
         // var two_spaces = /\s\s/;
-        var single_letter = /[a-zA-Z]/;
-        var space_letter = /\s[a-zA-Z]/;
-        var sharp_note = /[a-zA-Z][#]/;
+        var single_letter = /[a-zA-Z]\s\s/;
+        var sharp_note = /[a-zA-Z][#]\s\s/;
 
-        if (text_before.slice(text_before.length - 2, text_before.length) === "  ") {
-            form.textarea.value = text_before.slice(0, text_before.length - 2);
-        } else if (space_letter.test(text_before.slice(text_before.length - 2, text_before.length))) {
-            form.textarea.value = text_before.slice(0, text_before.length - 1);
-        } else if (sharp_note.test(text_before.slice(text_before.length - 2, text_before.length))) {
-            form.textarea.value = text_before.slice(0, text_before.length - 2);
-        } else if (single_letter.test(text_before.slice(text_before.length - 1, text_before.length))) {
-            form.textarea.value = text_before.slice(0, text_before.length - 1);
+        if (single_letter.test(text_before.slice(text_before.length - 3, text_before.length))) {
+            form.textarea.value = text_before.slice(0, text_before.length - 3);
+        } else if (sharp_note.test(text_before.slice(text_before.length - 4, text_before.length))) {
+            form.textarea.value = text_before.slice(0, text_before.length - 4);
         } else {
             form.textarea.value = text_before.slice(0, text_before.length - 1);
+        }
+
+        text_after = form.textarea.value.toString();
+
+        splitted_text = text_after.split("  ");
+
+        formatted_notes = []
+        for (i = 0; i < (splitted_text.length) - 1; i++) {
+            formatted_notes.push(splitted_text[i]);
+        }
+
+        all_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"]
+
+        for (i = 0; i < all_notes.length; i++) {
+            if (formatted_notes.indexOf(all_notes[i]) > -1) {
+                document.getElementById(all_notes[i]).checked = true;
+                getSelectedNotes();
+            } else {
+                document.getElementById(all_notes[i]).checked = false;
+                getSelectedNotes();
+            }
         }
     });
     display.ondblclick = (() => {

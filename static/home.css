@@ -317,7 +317,6 @@ input:checked + .slider:before {
 	font-size: 20px;
 	font-family: "Lato", sans-serif;
 	letter-spacing: 2px;
-	text-transform: uppercase;
 	/* pointer-events: none; */
 	padding: 15px 15px;
 	border-radius: 6px;
