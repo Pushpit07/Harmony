@@ -44,8 +44,12 @@ function sendNotes(notes) {
 
             $("#possible_chords").html('');
             var possChords = '';
-            for (var note in response.possible_chords) {
-                possChords += '<div class="col text-center"> Note ' + note + '<div> found in chords ' + response.possible_chords[note] + '</div></div>';
+            for (var scale in response.possible_chords_in_possible_scales) {
+                possChords += '<div class="row mt-5"><span class="possible_scale_name">' + scale + '</span>';
+                for (var note in response.possible_chords_in_possible_scales[scale]) {
+                    possChords += '<div class="col text-center"> Note <span class="note_name"> ' + note + '</span><div> found in chords <div class="note_name">' + response.possible_chords_in_possible_scales[scale][note] + '</div></div></div>';
+                }
+                possChords += '</div>'
             }
             // possChords += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
             $("#possible_chords").append(possChords);

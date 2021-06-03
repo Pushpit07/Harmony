@@ -364,3 +364,18 @@ input:checked + .slider:before {
 	min-height: 100vh;
 	background: var(--theme-background);
 }
+
+/* ================================================================= */
+/* ================================================================= */
+/*  Below Keyboard Result  */
+/* ================================================================= */
+/* ================================================================= */
+
+.possible_scale_name {
+	font-size: 1.4em !important;
+	color: var(--theme-color);
+}
+
+.note_name {
+	font-size: 1.5em !important;
+}
