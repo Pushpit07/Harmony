@@ -357,3 +357,10 @@ input:checked + .slider:before {
 .navbar-brand {
 	font-family: "Lato", sans-serif;
 }
+
+.possible_chords_container {
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: var(--theme-background);
+}

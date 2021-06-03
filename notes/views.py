@@ -44,24 +44,35 @@ def getNotes(request):
 
     print('Matched Count : ', matched_notes_count)
     print('Max matched :', max_matched_count)
-    print('Possible Chords :', possible_scales)
+    print('Possible Scales :', possible_scales)
 
     possible_chords = {}
+
+    # for scale in possible_scales:
+    #     for key, value in chords_to_notes_mappings.items():
+    #         if key == scale:
+    #             for key2 in value:
+    #                 note_arr = []
+    #                 for note in notes:
+    #                     if note in value[key2]:
+    #                         note_arr.append(note)
+    #                         possible_chords[key2] = note_arr
 
     for scale in possible_scales:
         for key, value in chords_to_notes_mappings.items():
             if key == scale:
-                for key2 in value:
+                for note in notes:
                     note_arr = []
-                    for note in notes:
+                    for key2 in value:
                         if note in value[key2]:
-                            note_arr.append(note)
-                            possible_chords[key2] = note_arr
+                            note_arr.append(key2)
+                            possible_chords[note] = note_arr
     
     print(possible_chords)
 
     context = {}
     context['possible_scales'] = possible_scales
+    context['possible_chords'] = possible_chords
     context['max_matched_count'] = max_matched_count
 
     return JsonResponse(context)

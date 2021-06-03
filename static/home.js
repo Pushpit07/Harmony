@@ -34,13 +34,21 @@ function sendNotes(notes) {
             console.log(response);
 
             $("#possible_scales").html('');
-            var possContent = '';
+            var possScales = '';
             for (var i = 0; i < response.possible_scales.length; i++) {
                 console.log(response.possible_scales[i]);
-                possContent += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_scales[i] + '</span></a>';
+                possScales += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_scales[i] + '</span></a>';
             }
-            // possContent += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
-            $("#possible_scales").append(possContent);
+            // possScales += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
+            $("#possible_scales").append(possScales);
+
+            $("#possible_chords").html('');
+            var possChords = '';
+            for (var note in response.possible_chords) {
+                possChords += '<div class="col text-center"> Note ' + note + '<div> found in chords ' + response.possible_chords[note] + '</div></div>';
+            }
+            // possChords += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
+            $("#possible_chords").append(possChords);
         },
         error: function (err) {
             console.log(err);

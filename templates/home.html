@@ -159,13 +159,13 @@
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="D#" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="D#" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="E" type="checkbox" onchange="getSelectedNotes()" />
+				<input id="E" type="checkbox" onchange="getSelectedNotes()" checked />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -243,7 +243,7 @@
 					<span class="selected_note">D</span>
 				</a>
 				<a href="#" class="selected_note_box">
-					<span class="selected_note">D#</span>
+					<span class="selected_note">E</span>
 				</a>
 				<a href="#" class="selected_note_box">
 					<span class="selected_note">F</span>
@@ -268,9 +268,11 @@
 		</div>
 		<div class="col-9">
 			<span id="possible_scales" class="selected_notes_wrapper">
+				{% comment %}
 				<a href="#" class="selected_note_box possible_chord_box">
 					<span class="selected_note possible_chord">A#</span>
 				</a>
+				{% endcomment %}
 				<a href="#" class="selected_note_box possible_chord_box">
 					<span class="selected_note possible_chord">C</span>
 				</a>
@@ -292,7 +294,7 @@
 						spellcheck="false"
 						onfocus="this.value = this.value"
 					>
-C  D  D#  F  A  B  </textarea
+C  D  E  F  A  B  </textarea
 					>
 				</div>
 
@@ -462,5 +464,9 @@ C  D  D#  F  A  B  </textarea
 			</form>
 		</div>
 	</div>
+
+	<div class="possible_chords_container">
+		<div id="possible_chords" class="row mt-3"></div>
+	</div>
+	{% endblock %}
 </div>
-{% endblock %}
