@@ -23,6 +23,7 @@ function sendNotes(notes) {
     var csrftoken = getCookie('csrftoken');
 
     $.ajax({
+        headers: { 'X-CSRFToken': csrftoken },
         type: 'POST',
         url: 'receivednotes',
         async: true,
@@ -76,6 +77,7 @@ function getCookie(name) {
             }
         }
     }
+    console.log(cookieValue);
     return cookieValue;
 }
 
