@@ -23,6 +23,6 @@
 				<div class="col-2 pl-4 navbar-brand">Home</div>
 			</div>
 		</div>
-		{% block content %} {% endblock %}
+		{% csrf_token %} {% block content %} {% endblock %}
 	</body>
 </html>
