@@ -236,6 +236,18 @@ input:checked + .slider:before {
 	box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.358);
 }
 
+.piano_key {
+	height: 140px !important;
+}
+
+.black_piano_key {
+	z-index: 1 !important;
+}
+
+.white_piano_key {
+	margin-top: -50px !important;
+}
+
 .disabled_key {
 	box-shadow: none !important;
 	color: rgb(168, 168, 168) !important;

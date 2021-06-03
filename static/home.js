@@ -33,13 +33,14 @@ function sendNotes(notes) {
         success: function (response) {
             console.log(response);
 
-            $("#possible_chords").html('');
+            $("#possible_scales").html('');
             var possContent = '';
-            for (var i = 0; i < response.possible_chords.length; i++) {
-                possContent += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_chords[i] + '</span></a>';
+            for (var i = 0; i < response.possible_scales.length; i++) {
+                console.log(response.possible_scales[i]);
+                possContent += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_scales[i] + '</span></a>';
             }
             // possContent += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
-            $("#possible_chords").append(possContent);
+            $("#possible_scales").append(possContent);
         },
         error: function (err) {
             console.log(err);

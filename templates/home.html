@@ -117,7 +117,7 @@
 <div class="row mt-3">
 	<div class="offset-2 col-10 mt-5" align="left">
 		<span class="selected_text">Possible Chords are: </span>
-		<span id="possible_chords">
+		<span id="possible_scales">
 			<span class="selected_note">A#</span>
 			<span class="selected_note">C</span>
 			<span class="selected_note">G</span>
@@ -264,10 +264,10 @@
 
 	<div class="row mt-3">
 		<div class="col-3 mt-5 text_vertical_center">
-			<span class="selected_text">Possible Chords: </span>
+			<span class="selected_text">Possible Scales: </span>
 		</div>
 		<div class="col-9">
-			<span id="possible_chords" class="selected_notes_wrapper">
+			<span id="possible_scales" class="selected_notes_wrapper">
 				<a href="#" class="selected_note_box possible_chord_box">
 					<span class="selected_note possible_chord">A#</span>
 				</a>
@@ -324,25 +324,116 @@ C  D  D#  F  A  B  </textarea
 
 				<div class="keys">
 					<input type="button" id="q" value="q" name="q" class="disabled_key" />
-					<input type="button" id="w" value="C#" name="w" onclick="disp(w.value)" class="sharp_note_key" />
-					<input type="button" id="e" value="D#" name="e" onclick="disp(e.value)" class="sharp_note_key" />
+					<input
+						type="button"
+						id="w"
+						value="C#"
+						name="w"
+						onclick="disp(w.value)"
+						class="sharp_note_key piano_key black_piano_key"
+					/>
+					<input
+						type="button"
+						id="e"
+						value="D#"
+						name="e"
+						onclick="disp(e.value)"
+						class="sharp_note_key piano_key black_piano_key"
+					/>
 					<input type="button" id="r" value="r" name="r" class="disabled_key" />
-					<input type="button" id="t" value="F#" name="t" onclick="disp(t.value)" class="sharp_note_key" />
-					<input type="button" id="y" value="G#" name="y" onclick="disp(y.value)" class="sharp_note_key" />
-					<input type="button" id="u" value="A#" name="u" onclick="disp(u.value)" class="sharp_note_key" />
+					<input
+						type="button"
+						id="t"
+						value="F#"
+						name="t"
+						onclick="disp(t.value)"
+						class="sharp_note_key piano_key black_piano_key"
+					/>
+					<input
+						type="button"
+						id="y"
+						value="G#"
+						name="y"
+						onclick="disp(y.value)"
+						class="sharp_note_key piano_key black_piano_key"
+					/>
+					<input
+						type="button"
+						id="u"
+						value="A#"
+						name="u"
+						onclick="disp(u.value)"
+						class="sharp_note_key piano_key black_piano_key"
+					/>
 					<input type="button" id="i" value="i" name="i" class="disabled_key" />
 					<input type="button" id="o" value="o" name="o" class="disabled_key" />
 					<input type="button" id="p" value="p" name="p" class="disabled_key" />
 				</div>
 				<div class="keys">
-					<input type="button" id="a" value="C" name="a" onclick="disp(a.value)" />
-					<input type="button" id="s" value="D" name="s" onclick="disp(s.value)" />
-					<input type="button" id="d" value="E" name="d" onclick="disp(d.value)" />
-					<input type="button" id="f" value="F" name="f" onclick="disp(f.value)" />
-					<input type="button" id="g" value="G" name="g" onclick="disp(g.value)" />
-					<input type="button" id="h" value="A" name="h" onclick="disp(h.value)" />
-					<input type="button" id="j" value="B" name="j" onclick="disp(j.value)" />
-					<input type="button" id="k" value="C" name="k" onclick="disp(k.value)" />
+					<input
+						type="button"
+						id="a"
+						value="C"
+						name="a"
+						onclick="disp(a.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="s"
+						value="D"
+						name="s"
+						onclick="disp(s.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="d"
+						value="E"
+						name="d"
+						onclick="disp(d.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="f"
+						value="F"
+						name="f"
+						onclick="disp(f.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="g"
+						value="G"
+						name="g"
+						onclick="disp(g.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="h"
+						value="A"
+						name="h"
+						onclick="disp(h.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="j"
+						value="B"
+						name="j"
+						onclick="disp(j.value)"
+						class="piano_key white_piano_key"
+					/>
+					<input
+						type="button"
+						id="k"
+						value="C"
+						name="k"
+						onclick="disp(k.value)"
+						class="piano_key white_piano_key"
+					/>
 					<input type="button" id="l" value="l" name="l" class="disabled_key" />
 				</div>
 				<div class="keys">

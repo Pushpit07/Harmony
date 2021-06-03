@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from scales_to_notes_mappings import chords_to_notes_mappings
 
 # Create your views here.
 def keyboard(request):
@@ -11,21 +12,6 @@ def home(request):
 def getNotes(request):
     notes = request.POST.getlist('notes[]')
     print('Notes :', notes)
-
-    chords_to_notes_mappings = {
-        "A": ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#', 'A'],
-        "A#": ['A#', 'C', 'D', 'D#', 'F', 'G', 'A', 'A#'],
-        "B": ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#', 'B'],
-        "C": ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C'],
-        "C#": ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C', 'C#'],
-        "D": ['D', 'E', 'F#', 'G', 'A', 'B', 'C#', 'D'],
-        "D#": ['D#', 'F', 'G', 'G#', 'A#', 'C', 'D', 'D#'],
-        "E": ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#', 'E'],
-        "F": ['F', 'G', 'A', 'A#', 'C', 'D', 'E', 'F'],
-        "F#": ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F', 'F#'],
-        "G": ['G', 'A', 'B', 'C', 'D', 'E', 'F#', 'G'],
-        "G#": ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G', 'G#']
-    }
 
     matched_notes_count = {
         "A": 0,
@@ -47,22 +33,35 @@ def getNotes(request):
             if note in value:
                 matched_notes_count[key] += 1
 
-    print('Matched Count : ', matched_notes_count)
-
     all_matched_counts = matched_notes_count.values()
     max_matched_count = max(all_matched_counts)
-    print('Max matched :', max_matched_count)
 
-    possible_chords = []
+    possible_scales = []
 
     for key, value in matched_notes_count.items():
         if value == max_matched_count:
-            possible_chords.append(key)
+            possible_scales.append(key)
 
-    print('Possible Chords :', possible_chords)
+    print('Matched Count : ', matched_notes_count)
+    print('Max matched :', max_matched_count)
+    print('Possible Chords :', possible_scales)
+
+    possible_chords = {}
+
+    for scale in possible_scales:
+        for key, value in chords_to_notes_mappings.items():
+            if key == scale:
+                for key2 in value:
+                    note_arr = []
+                    for note in notes:
+                        if note in value[key2]:
+                            note_arr.append(note)
+                            possible_chords[key2] = note_arr
+    
+    print(possible_chords)
 
     context = {}
-    context['possible_chords'] = possible_chords
+    context['possible_scales'] = possible_scales
     context['max_matched_count'] = max_matched_count
 
     return JsonResponse(context)
