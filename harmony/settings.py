@@ -74,10 +74,25 @@ WSGI_APPLICATION = 'harmony.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# Local
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# Cloud
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'harmony_database',
+        'PASSWORD': 'harmony_database',
+        'HOST': 'harmony-database.ckhclsof3rjk.us-west-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
