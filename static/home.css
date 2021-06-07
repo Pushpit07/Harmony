@@ -11,8 +11,8 @@
 
 :root {
 	/* --theme-color: #3498db; */
-	/* --theme-color: #4f47b3; */
-	--theme-color: #2aa2a7;
+	--theme-color: #4f47b3;
+	/* --theme-color: #2aa2a7; */
 	--theme-background: #dde1e7;
 }
 
@@ -358,24 +358,56 @@ input:checked + .slider:before {
 	font-family: "Lato", sans-serif;
 }
 
-.possible_chords_container {
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	background: var(--theme-background);
-}
-
 /* ================================================================= */
 /* ================================================================= */
 /*  Below Keyboard Result  */
 /* ================================================================= */
 /* ================================================================= */
 
+.possible_chords_container {
+	align-items: center;
+	justify-content: center;
+	background: var(--theme-background);
+}
+
+.result_row {
+	padding-bottom: 70px;
+}
+
 .possible_scale_name {
+	margin-left: -30px;
 	font-size: 1.4em !important;
 	color: var(--theme-color);
 }
 
-.note_name {
-	font-size: 1.5em !important;
+.btn_resultant_chord_in_scale {
+	border-color: var(--theme-color) !important;
+	color: var(--theme-color) !important;
+	border-radius: 3px !important;
+}
+
+.btn_group_width {
+	width: 80% !important;
+}
+
+.btn_resultant_chord_in_scale:hover {
+	background-color: var(--theme-color) !important;
+	color: var(--theme-background) !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn_resultant_chord_in_scale:active {
+	background-color: var(--theme-color) !important;
+	color: var(--theme-background) !important;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.btn-check:active + .btn_resultant_chord_in_scale,
+.btn-check:checked + .btn_resultant_chord_in_scale {
+	background-color: var(--theme-color) !important;
+	color: var(--theme-background) !important;
+	outline: none !important;
+	box-shadow: none !important;
 }

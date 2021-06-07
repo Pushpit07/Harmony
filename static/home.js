@@ -3,18 +3,30 @@ var o = null;
 var g = null;
 
 function playNote(frequency, type) {
-    console.log("playNote");
-
-    setTimeout(function () {
-        o = context.createOscillator();
-        g = context.createGain();
-        o.type = type;
+    var freqs = [261.63, 329.63, 392.00];
+    for (var i = 0; i < freqs.length; i++) {
+        var o = context.createOscillator();
+        var g = context.createGain();
+        o.frequency.value = freqs[i];
         o.connect(g);
-        o.frequency.value = frequency;
+        g.gain.value = 1 / freqs.length;
         g.connect(context.destination);
         o.start(0);
-        g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1);
-    }, 1000);
+        setTimeout(function (s) { s.stop(0) }, 1000, o);
+    }
+
+    // console.log("playNote");
+
+    // setTimeout(function () {
+    //     o = context.createOscillator();
+    //     g = context.createGain();
+    //     o.type = type;
+    //     o.connect(g);
+    //     o.frequency.value = frequency;
+    //     g.connect(context.destination);
+    //     o.start(0);
+    //     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1);
+    // }, 1000);
 }
 
 
@@ -25,7 +37,7 @@ function getSelectedNotes() {
     for (var checkbox of markedCheckbox) {
         notes.push(checkbox.id);
     }
-    console.log('Notes :', notes)
+    // console.log('Notes :', notes)
     form.textarea.value = ""
 
     document.getElementById('selected_notes').innerHTML = '';
@@ -52,23 +64,40 @@ function sendNotes(notes) {
             notes: notes
         },
         success: function (response) {
-            console.log(response);
+            // console.log(response);
 
             $("#possible_scales").html('');
             var possScales = '';
             for (var i = 0; i < response.possible_scales.length; i++) {
-                console.log(response.possible_scales[i]);
+                // console.log(response.possible_scales[i]);
                 possScales += '<a href="#" class="selected_note_box possible_chord_box"><span class="selected_note possible_chord">' + response.possible_scales[i] + '</span></a>';
             }
             // possScales += '<span class="selected_note"> with ' + response.max_matched_count + ' notes matching</span>';
             $("#possible_scales").append(possScales);
 
+            $("#inputted_notes").html('');
+            // var inputtedNotes = '';
+
+            // for (var scale in response.possible_chords_in_possible_scales) {
+            //     inputtedNotes += '<div class="row result_row"><div class="col-1"><span class="possible_scale_name"></span></div>';
+            //     for (var note in response.possible_chords_in_possible_scales[scale]) {
+            //         inputtedNotes +=
+            //             '<div class="col text-center"><span class="note mb-2">' + note + '</span></div>';
+            //     }
+            //     inputtedNotes += '</div>'
+            //     break;
+            // }
+            // $("#inputted_notes").append(inputtedNotes);
+
             $("#possible_chords").html('');
             var possChords = '';
             for (var scale in response.possible_chords_in_possible_scales) {
-                possChords += '<div class="row mt-5"><span class="possible_scale_name">' + scale + '</span>';
+                possChords += '<div class="row result_row"><div class="col-1 text-center"><span class="note possible_scale_name">Scale ' + scale + '</span></div>';
                 for (var note in response.possible_chords_in_possible_scales[scale]) {
-                    possChords += '<div class="col text-center"> Note <span class="note_name"> ' + note + '</span><div> found in chords <div class="note_name">' + response.possible_chords_in_possible_scales[scale][note] + '</div></div></div>';
+                    possChords +=
+                        '<div class="col text-center"><div class="row"><span class="note mb-4">' + note + '</span></div>' + '<div class="btn-group-vertical btn_group_width" role="group" aria-label="Basic radio toggle button group">'
+                        + makeRadioButtons(response.possible_chords_in_possible_scales[scale][note], scale, note)
+                        + '</div></div>';
                 }
                 possChords += '</div>'
             }
@@ -81,7 +110,24 @@ function sendNotes(notes) {
     })
 }
 
-console.log('Poss', document.getElementById('poss'))
+function makeRadioButtons(array, scale, note) {
+    btn_array = '';
+    radio_btn_group_name = scale + note;
+    for (var i = 0; i < array.length; i++) {
+        unique_name = scale + note + array[i];
+        btn_array += '<input type="radio" class="btn-check" name=' + radio_btn_group_name + ' id=' + unique_name + ' value=' + array[i] + ' autocomplete="off" /><label class="btn btn-outline-primary btn_resultant_chord_in_scale" for=' + unique_name + ' >' + array[i] + '</label>';
+    }
+    // btn_array += '<div class="btn-group" role="group" aria-label="Basic radio toggle button group">';
+
+    // for (var i = 0; i < array.length; i++) {
+    //     btn_array.push('<input type="radio" class="btn-check" name=' + unique_name + ' id=' + unique_name + ' value=' + array[i] + ' autocomplete="off" checked />< label class= "btn btn-outline-primary" for=' + unique_name + ' > Radio 1</label >');
+    // }
+
+    // btn_array += '</div>';
+    return btn_array;
+}
+
+// console.log('Poss', document.getElementById('poss'))
 
 
 function getCookie(name) {
@@ -97,7 +143,6 @@ function getCookie(name) {
             }
         }
     }
-    console.log(cookieValue);
     return cookieValue;
 }
 

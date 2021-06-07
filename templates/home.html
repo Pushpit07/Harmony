@@ -467,10 +467,34 @@ C  D  E  F  A  B  </textarea
 	</div>
 
 	<div class="possible_chords_container">
-		<div id="possible_chords" class="row mt-3"></div>
-	</div>
+		<div id="inputted_notes" class="row mt-3">
+			<div class="row result_row">
+				<div class="col-1">
+					<span class="possible_scale_name"></span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> C</span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> D</span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> E</span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> F</span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> A</span>
+				</div>
+				<div class="col text-center">
+					<span class="note mb-2"> B</span>
+				</div>
+			</div>
+		</div>
+		<div id="possible_chords" class="row mt-2"></div>
 
-	<span onclick="playNote(1047, 'sine')">Play C6</span>
-	<span onclick="playNote(392.0, 'sine')">Play G4</span>
-	{% endblock %}
+		{% comment %} <span onclick="playNote(1047, 'sine')">Play C6</span>
+		<span onclick="playNote(392.0, 'sine')">Play G4</span> {% endcomment %} {% endblock %}
+	</div>
 </div>
