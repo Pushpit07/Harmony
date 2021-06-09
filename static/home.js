@@ -3,17 +3,19 @@ var o = null;
 var g = null;
 
 function playNote(frequency, type) {
-    var freqs = [261.63, 329.63, 392.00];
-    for (var i = 0; i < freqs.length; i++) {
-        var o = context.createOscillator();
-        var g = context.createGain();
-        o.frequency.value = freqs[i];
-        o.connect(g);
-        g.gain.value = 1 / freqs.length;
-        g.connect(context.destination);
-        o.start(0);
-        setTimeout(function (s) { s.stop(0) }, 1000, o);
-    }
+    // var freqs = [261.63, 329.63, 392.00];
+    // for (var i = 0; i < freqs.length; i++) {
+    //     var o = context.createOscillator();
+    //     var g = context.createGain();
+    //     o.frequency.value = freqs[i];
+    //     o.connect(g);
+    //     g.gain.value = 1 / freqs.length;
+    //     g.connect(context.destination);
+    //     o.start(0);
+    //     setTimeout(function (s) { s.stop(0) }, 1000, o);
+    // }
+    // playSound("sine", 440, 2.5, 220, 0.8, 440, 1.4);
+    playTone("G")
 
     // console.log("playNote");
 
@@ -115,7 +117,7 @@ function makeRadioButtons(array, scale, note) {
     radio_btn_group_name = scale + note;
     for (var i = 0; i < array.length; i++) {
         unique_name = scale + note + array[i];
-        btn_array += '<input type="radio" class="btn-check" name=' + radio_btn_group_name + ' id=' + unique_name + ' value=' + array[i] + ' autocomplete="off" /><label class="btn btn-outline-primary btn_resultant_chord_in_scale" for=' + unique_name + ' >' + array[i] + '</label>';
+        btn_array += '<input type="radio" class="btn-check" name=' + note + ' id=' + unique_name + ' value=' + array[i] + ' autocomplete="off" /><label class="btn btn-outline-primary btn_resultant_chord_in_scale" for=' + unique_name + ' >' + array[i] + '</label>';
     }
     // btn_array += '<div class="btn-group" role="group" aria-label="Basic radio toggle button group">';
 
@@ -252,6 +254,8 @@ function disp(result) {
 
 window.addEventListener('keydown', function (event) {
     event.preventDefault();
+    if (event.repeat)
+        return;
 
     if (event.keyCode === 32) {
         document.getElementById('space').classList.add("keyPressed");
@@ -266,6 +270,15 @@ window.addEventListener('keydown', function (event) {
     else {
         document.getElementById(event.key).classList.add("keyPressed");
     }
+
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`.piano_key[data-key="${event.keyCode}"]`);
+
+    if (!key)
+        return;
+
+    audio.currentTime = 0;
+    audio.play();
 }, false);
 
 window.addEventListener('keyup', function (event) {

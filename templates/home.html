@@ -330,6 +330,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="w"
+						data-key="87"
+						data-note="C#"
 						value="C#"
 						name="w"
 						onclick="disp(w.value)"
@@ -338,6 +340,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="e"
+						data-key="69"
+						data-note="D#"
 						value="D#"
 						name="e"
 						onclick="disp(e.value)"
@@ -347,6 +351,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="t"
+						data-key="84"
+						data-note="F#"
 						value="F#"
 						name="t"
 						onclick="disp(t.value)"
@@ -355,6 +361,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="y"
+						data-key="89"
+						data-note="G#"
 						value="G#"
 						name="y"
 						onclick="disp(y.value)"
@@ -363,6 +371,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="u"
+						data-key="85"
+						data-note="A#"
 						value="A#"
 						name="u"
 						onclick="disp(u.value)"
@@ -376,6 +386,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="a"
+						data-key="65"
+						data-note="C"
 						value="C"
 						name="a"
 						onclick="disp(a.value)"
@@ -384,6 +396,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="s"
+						data-key="83"
+						data-note="D"
 						value="D"
 						name="s"
 						onclick="disp(s.value)"
@@ -392,6 +406,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="d"
+						data-key="68"
+						data-note="E"
 						value="E"
 						name="d"
 						onclick="disp(d.value)"
@@ -400,6 +416,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="f"
+						data-key="70"
+						data-note="F"
 						value="F"
 						name="f"
 						onclick="disp(f.value)"
@@ -408,6 +426,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="g"
+						data-key="71"
+						data-note="G"
 						value="G"
 						name="g"
 						onclick="disp(g.value)"
@@ -416,6 +436,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="h"
+						data-key="72"
+						data-note="A"
 						value="A"
 						name="h"
 						onclick="disp(h.value)"
@@ -424,6 +446,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="j"
+						data-key="74"
+						data-note="B"
 						value="B"
 						name="j"
 						onclick="disp(j.value)"
@@ -432,6 +456,8 @@ C  D  E  F  A  B  </textarea
 					<input
 						type="button"
 						id="k"
+						data-key="75"
+						data-note="C"
 						value="C"
 						name="k"
 						onclick="disp(k.value)"
@@ -462,6 +488,35 @@ C  D  E  F  A  B  </textarea
 				<div class="keys">
 					<input type="button" id="space" value="space" />
 				</div>
+
+				<audio data-key="65" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
+				<audio data-key="87" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
+				<audio data-key="83" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
+				<audio data-key="69" src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"></audio>
+				<audio data-key="68" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
+				<audio data-key="70" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
+				<audio data-key="84" src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"></audio>
+				<audio data-key="71" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
+				<audio data-key="89" src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"></audio>
+				<audio data-key="72" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
+				<audio data-key="85" src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"></audio>
+				<audio data-key="74" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio>
+				<audio data-key="75" src="http://carolinegabriel.com/demo/js-keyboard/sounds/052.wav"></audio>
+
+				{% comment %}
+				<audio data-key="C" src="http://carolinegabriel.com/demo/js-keyboard/sounds/040.wav"></audio>
+				<audio data-key="C#" src="http://carolinegabriel.com/demo/js-keyboard/sounds/041.wav"></audio>
+				<audio data-key="D" src="http://carolinegabriel.com/demo/js-keyboard/sounds/042.wav"></audio>
+				<audio data-key="D#" src="http://carolinegabriel.com/demo/js-keyboard/sounds/043.wav"></audio>
+				<audio data-key="E" src="http://carolinegabriel.com/demo/js-keyboard/sounds/044.wav"></audio>
+				<audio data-key="F" src="http://carolinegabriel.com/demo/js-keyboard/sounds/045.wav"></audio>
+				<audio data-key="F#" src="http://carolinegabriel.com/demo/js-keyboard/sounds/046.wav"></audio>
+				<audio data-key="G" src="http://carolinegabriel.com/demo/js-keyboard/sounds/047.wav"></audio>
+				<audio data-key="G#" src="http://carolinegabriel.com/demo/js-keyboard/sounds/048.wav"></audio>
+				<audio data-key="A" src="http://carolinegabriel.com/demo/js-keyboard/sounds/049.wav"></audio>
+				<audio data-key="A#" src="http://carolinegabriel.com/demo/js-keyboard/sounds/050.wav"></audio>
+				<audio data-key="B" src="http://carolinegabriel.com/demo/js-keyboard/sounds/051.wav"></audio> {%
+				endcomment %}
 			</form>
 		</div>
 	</div>
@@ -494,7 +549,7 @@ C  D  E  F  A  B  </textarea
 		</div>
 		<div id="possible_chords" class="row mt-2"></div>
 
-		{% comment %} <span onclick="playNote(1047, 'sine')">Play C6</span>
+		{% comment %} <span onclick="playNote(130.8, 'sine')">Play C3</span>
 		<span onclick="playNote(392.0, 'sine')">Play G4</span> {% endcomment %} {% endblock %}
 	</div>
 </div>
