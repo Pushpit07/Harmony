@@ -1,37 +1,3 @@
-var context = new AudioContext();
-var o = null;
-var g = null;
-
-function playNote(frequency, type) {
-    // var freqs = [261.63, 329.63, 392.00];
-    // for (var i = 0; i < freqs.length; i++) {
-    //     var o = context.createOscillator();
-    //     var g = context.createGain();
-    //     o.frequency.value = freqs[i];
-    //     o.connect(g);
-    //     g.gain.value = 1 / freqs.length;
-    //     g.connect(context.destination);
-    //     o.start(0);
-    //     setTimeout(function (s) { s.stop(0) }, 1000, o);
-    // }
-    // playSound("sine", 440, 2.5, 220, 0.8, 440, 1.4);
-    playTone("G")
-
-    // console.log("playNote");
-
-    // setTimeout(function () {
-    //     o = context.createOscillator();
-    //     g = context.createGain();
-    //     o.type = type;
-    //     o.connect(g);
-    //     o.frequency.value = frequency;
-    //     g.connect(context.destination);
-    //     o.start(0);
-    //     g.gain.exponentialRampToValueAtTime(0.00001, context.currentTime + 1);
-    // }, 1000);
-}
-
-
 function getSelectedNotes() {
     var notes = [];
     var markedCheckbox = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -39,7 +5,7 @@ function getSelectedNotes() {
     for (var checkbox of markedCheckbox) {
         notes.push(checkbox.id);
     }
-    // console.log('Notes :', notes)
+
     form.textarea.value = ""
 
     document.getElementById('selected_notes').innerHTML = '';
@@ -129,9 +95,6 @@ function makeRadioButtons(array, scale, note) {
     return btn_array;
 }
 
-// console.log('Poss', document.getElementById('poss'))
-
-
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -147,17 +110,6 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-
-
-// function checkSelected(checkboxElem) {
-//     if (checkboxElem.checked) {
-//         // console.log(checkboxElem.id, ':  Checked');
-//         getSelectedNotes();
-//     } else {
-//         // console.log("Unchecked : ", checkboxElem.id);
-//         getSelectedNotes();
-//     }
-// }
 
 function disp(result) {
     const spaceBtn = document.querySelector('#space');
@@ -238,18 +190,6 @@ function disp(result) {
         form.textarea.value = "";
     });
 }
-
-// function keypress(e) {
-//     var keynum;
-
-//     if (window.event) { // IE                  
-//         keynum = e.keyCode;
-//     } else if (e.which) { // Netscape/Firefox/Opera                 
-//         keynum = e.which;
-//     }
-
-//     console.log(String.fromCharCode(keynum));
-// }
 
 
 window.addEventListener('keydown', function (event) {
