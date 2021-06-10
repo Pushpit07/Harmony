@@ -283,6 +283,10 @@
 	</div>
 
 	<div class="keyboard_screen">
+		<div class="buttons">
+			<button class="btn record_button"><i class="fas fa-microphone"></i>&nbsp;&nbsp;Record</button>
+			<button class="btn play_button">Play</button>
+		</div>
 		<div class="container">
 			<form class="wrapper" name="form">
 				{% csrf_token %}
@@ -331,7 +335,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="w"
 						data-key="87"
-						data-note="C#"
+						data-note="W"
 						value="C#"
 						name="w"
 						onclick="disp(w.value)"
@@ -341,7 +345,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="e"
 						data-key="69"
-						data-note="D#"
+						data-note="E"
 						value="D#"
 						name="e"
 						onclick="disp(e.value)"
@@ -352,7 +356,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="t"
 						data-key="84"
-						data-note="F#"
+						data-note="T"
 						value="F#"
 						name="t"
 						onclick="disp(t.value)"
@@ -362,7 +366,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="y"
 						data-key="89"
-						data-note="G#"
+						data-note="Y"
 						value="G#"
 						name="y"
 						onclick="disp(y.value)"
@@ -372,7 +376,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="u"
 						data-key="85"
-						data-note="A#"
+						data-note="U"
 						value="A#"
 						name="u"
 						onclick="disp(u.value)"
@@ -387,7 +391,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="a"
 						data-key="65"
-						data-note="C"
+						data-note="A"
 						value="C"
 						name="a"
 						onclick="disp(a.value)"
@@ -397,7 +401,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="s"
 						data-key="83"
-						data-note="D"
+						data-note="S"
 						value="D"
 						name="s"
 						onclick="disp(s.value)"
@@ -407,7 +411,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="d"
 						data-key="68"
-						data-note="E"
+						data-note="D"
 						value="E"
 						name="d"
 						onclick="disp(d.value)"
@@ -437,7 +441,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="h"
 						data-key="72"
-						data-note="A"
+						data-note="H"
 						value="A"
 						name="h"
 						onclick="disp(h.value)"
@@ -447,7 +451,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="j"
 						data-key="74"
-						data-note="B"
+						data-note="J"
 						value="B"
 						name="j"
 						onclick="disp(j.value)"
@@ -457,7 +461,7 @@ C  D  E  F  A  B  </textarea
 						type="button"
 						id="k"
 						data-key="75"
-						data-note="C"
+						data-note="K"
 						value="C"
 						name="k"
 						onclick="disp(k.value)"
@@ -532,7 +536,7 @@ C  D  E  F  A  B  </textarea
 				</div>
 			</div>
 		</div>
-		<div id="possible_chords" class="row mt-2"></div>
+		<div id="possible_chords" class="row mt-5"></div>
 		{% endblock %}
 	</div>
 </div>
