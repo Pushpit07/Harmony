@@ -141,7 +141,7 @@
 	<div class="row m-auto mt-2">
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="C" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="C" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -153,7 +153,7 @@
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="D" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="D" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -165,13 +165,13 @@
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="E" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="E" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="F" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="F" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -207,7 +207,7 @@
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="A" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="A" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -219,7 +219,7 @@
 		</div>
 		<div class="col-md-1 m-auto">
 			<label class="switch">
-				<input id="B" type="checkbox" onchange="getSelectedNotes()" checked />
+				<input id="B" type="checkbox" onchange="getSelectedNotes()" />
 				<span class="slider round"></span>
 			</label>
 		</div>
@@ -236,6 +236,7 @@
 		</div>
 		<div class="col-9">
 			<span id="selected_notes" class="selected_notes_wrapper">
+				{% comment %}
 				<a href="#" class="selected_note_box">
 					<span class="selected_note">C</span>
 				</a>
@@ -254,6 +255,7 @@
 				<a href="#" class="selected_note_box">
 					<span class="selected_note">B</span>
 				</a>
+				{% endcomment %}
 			</span>
 		</div>
 		<br />
@@ -272,11 +274,11 @@
 				<a href="#" class="selected_note_box possible_chord_box">
 					<span class="selected_note possible_chord">A#</span>
 				</a>
-				{% endcomment %}
+				{% endcomment %} {% comment %}
 				<a href="#" class="selected_note_box possible_chord_box">
 					<span class="selected_note possible_chord">C</span>
 				</a>
-				{% comment %} <span class="selected_note">with 5 notes matching</span> {% endcomment %}
+				{% endcomment %} {% comment %} <span class="selected_note">with 5 notes matching</span> {% endcomment %}
 			</span>
 		</div>
 		<br />
@@ -291,6 +293,7 @@
 			<form class="wrapper" name="form">
 				{% csrf_token %}
 				<div class="display">
+					{% comment %}
 					<textarea
 						name="textarea"
 						cols="30"
@@ -301,6 +304,15 @@
 					>
 C  D  E  F  A  B  </textarea
 					>
+					{% endcomment %}
+					<textarea
+						name="textarea"
+						cols="30"
+						id="test"
+						rows="10"
+						spellcheck="false"
+						onfocus="this.value = this.value"
+					></textarea>
 				</div>
 
 				{% comment %}
@@ -327,6 +339,17 @@ C  D  E  F  A  B  </textarea
 						/>
 					</span>
 				</div>
+				{% endcomment %} {% comment %}
+				<input
+					type="button"
+					id="w"
+					data-key="87"
+					data-note="W"
+					value="C#"
+					name="w"
+					onclick="disp(w.value)"
+					class="sharp_note_key piano_key black_piano_key"
+				/>
 				{% endcomment %}
 
 				<div class="keys">
@@ -511,6 +534,7 @@ C  D  E  F  A  B  </textarea
 	</div>
 
 	<div class="possible_chords_container">
+		{% comment %}
 		<div id="inputted_notes" class="row mt-3">
 			<div class="row result_row">
 				<div class="col-1">
@@ -536,7 +560,13 @@ C  D  E  F  A  B  </textarea
 				</div>
 			</div>
 		</div>
+		{% endcomment %}
 		<div id="possible_chords" class="row mt-5"></div>
+		<div class="row mb-5 text-center justify-content-center">
+			<div class="col-3">
+				<button id="final_submit" class="btn btn-primary bg-primary mb-5">Play Chords</button>
+			</div>
+		</div>
 		{% endblock %}
 	</div>
 </div>

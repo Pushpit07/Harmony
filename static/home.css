@@ -473,6 +473,18 @@ input:checked + .slider:before {
 	background: var(--theme-background) !important;
 }
 
+#final_submit {
+	background: #091921 !important;
+	color: var(--theme-background) !important;
+	border: 1px solid var(--theme-color);
+}
+
+#final_submit:hover,
+#final_submit:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+
 /* ================================================================= */
 /* ================================================================= */
 /*  Neumorphism  */

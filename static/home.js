@@ -45,7 +45,7 @@ function playSong() {
             playNote(currNote)
         }, note.startTime)
     })
-    console.log(songNotes);
+    // console.log(songNotes);
 }
 
 function recordNote(note) {
@@ -182,6 +182,63 @@ function makeRadioButtons(array, scale, note) {
     return btn_array;
 }
 
+
+let songChords = [];
+
+$("#final_submit").click(function () {
+    songChords = [];
+    var final_cords = []
+
+    for (note in songNotes) {
+        console.log(songNotes[note])
+        var note_elem = document.querySelector(`.piano_key[data-note="${songNotes[note].key}"]`);
+        var matching_startTime = songNotes[note].startTime;
+        var matching_note = note_elem.getAttribute('value');
+        final_cords.push({
+            key: matching_note,
+            startTime: matching_startTime
+        })
+    }
+
+    // console.log('matching notes', final_cords)
+
+    $(".btn-check").each(function () {
+        curr_checked_btn_name = $(this)[0].name;
+        curr_checked_btn_defaultValue = $(this)[0].defaultValue;
+
+        if ($(this)[0].checked) {
+            final_cords.forEach(function (item) {
+                if (item.key === curr_checked_btn_name) {
+                    songChords.push({
+                        key: curr_checked_btn_defaultValue,
+                        startTime: item.startTime
+                    })
+                }
+            })
+
+            // console.log('SongChords : ', songChords)
+        }
+        else {
+            // console.log($(this))
+        }
+    });
+
+    songChords.sort(function (a, b) {
+        return a.startTime - b.startTime;
+    });
+
+    console.log('SongChords sorted : ', songChords)
+
+    if (songChords.length === 0)
+        return;
+    songChords.forEach(chord => {
+        setTimeout(() => {
+            playChord(chord.key)
+        }, chord.startTime)
+    })
+});
+
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -199,6 +256,7 @@ function getCookie(name) {
 }
 
 function disp(result) {
+    console.log(result);
     const spaceBtn = document.querySelector('#space');
     const backspaceBtn = document.querySelector('#Backspace');
     const display = document.querySelector('.display');
@@ -306,7 +364,7 @@ function playNote(event) {
             }
         })
     } else {
-        console.log(event)
+        // console.log(event)
         const noteAudio = document.querySelector(`audio[data-key="${event.getAttribute("data-key")}"]`);
         const key = document.querySelector(`.piano_key[data-key="${event.getAttribute("data-key")}"]`);
 
@@ -339,6 +397,24 @@ window.addEventListener('keydown', function (event) {
     event.preventDefault();
     if (event.repeat)
         return;
+
+    keyboard_keys_to_notes = {
+        "A": "C",
+        "W": "C#",
+        "S": "D",
+        "E": "D#",
+        "D": "E",
+        "F": "F",
+        "T": "F#",
+        "G": "G",
+        "Y": "G#",
+        "H": "A",
+        "U": "A#",
+        "J": "B",
+        "K": "C"
+    }
+
+    console.log(keyboard_keys_to_notes[event.key.toUpperCase()]);
 
     if (isRecording())
         recordNote(event.key.toUpperCase());
@@ -376,3 +452,142 @@ window.addEventListener('keyup', function (event) {
         }
     }
 }, false);
+
+
+
+
+
+
+/* 
+Chords
+*/
+
+const context = new AudioContext();
+
+// Signal dampening amount
+let dampening = 0.99;
+
+// Returns a AudioNode object that will produce a plucking sound
+function pluck(frequency) {
+    // We create a script processor that will enable
+    // low-level signal sample access
+    const pluck = context.createScriptProcessor(4096, 0, 1);
+
+    // N is the period of our signal in samples
+    const N = Math.round(context.sampleRate / frequency);
+
+    // y is the signal presently
+    const y = new Float32Array(N);
+    for (let i = 0; i < N; i++) {
+        // We fill this with gaussian noise between [-1, 1]
+        y[i] = Math.random() * 2 - 1;
+    }
+
+    // This callback produces the sound signal
+    let n = 0;
+    pluck.onaudioprocess = function (e) {
+        // We get a reference to the outputBuffer
+        const output = e.outputBuffer.getChannelData(0);
+
+        // We fill the outputBuffer with our generated signal
+        for (let i = 0; i < e.outputBuffer.length; i++) {
+            // This averages the current sample with the next one
+            // Effectively, this is a lowpass filter with a
+            // frequency exactly half of sampling rate
+            y[n] = (y[n] + y[(n + 1) % N]) / 2;
+
+            // Put the actual sample into the buffer
+            output[i] = y[n];
+
+            // Hasten the signal decay by applying dampening.
+            y[n] *= dampening;
+
+            // Counting constiables to help us read our current
+            // signal y
+            n++;
+            if (n >= N) n = 0;
+        }
+    };
+
+    // The resulting signal is not as clean as it should be.
+    // In lower frequencies, aliasing is producing sharp sounding
+    // noise, making the signal sound like a harpsichord. We
+    // apply a bandpass centred on our target frequency to remove
+    // these unwanted noise.
+    const bandpass = context.createBiquadFilter();
+    bandpass.type = "bandpass";
+    bandpass.frequency.value = frequency;
+    bandpass.Q.value = 1;
+
+    // We connect the ScriptProcessorNode to the BiquadFilterNode
+    pluck.connect(bandpass);
+
+    // Our signal would have died down by 2s, so we automatically
+    // disconnect eventually to prevent leaking memory.
+    setTimeout(() => {
+        pluck.disconnect();
+    }, 2000);
+    setTimeout(() => {
+        bandpass.disconnect();
+    }, 2000);
+
+    // The bandpass is last AudioNode in the chain, so we return
+    // it as the "pluck"
+    return bandpass;
+}
+
+// Fret is an array of finger positions
+// e.g. [-1, 3, 5, 5, -1, -1];
+// 0 is an open string
+// >=1 are the finger positions above the neck
+function strum(fret, stringCount = 6, stagger = 25) {
+    // Reset dampening to the natural state
+    dampening = 0.99;
+
+    // Connect our strings to the sink
+    const dst = context.destination;
+    for (let index = 0; index < stringCount; index++) {
+        if (Number.isFinite(fret[index])) {
+            setTimeout(() => {
+                pluck(getFrequency(index, fret[index])).connect(dst);
+            }, stagger * index);
+        }
+    }
+}
+
+function getFrequency(string, fret) {
+    // Concert A frequency
+    const A = 110;
+
+    // These are how far guitar strings are tuned apart from A
+    const offsets = [-5, 0, 5, 10, 14, 19];
+
+    return A * Math.pow(2, (fret + offsets[string]) / 12);
+}
+
+function mute() {
+    dampening = 0.89;
+}
+
+function playChord(chord) {
+    chords_to_play_mappings = {
+        "A": [-1, 0, 2, 2, 2, 0],
+        "A#": [-1, 1, 3, 3, 3, 1],
+        "B": [-1, 2, 4, 4, 4, 2],
+        "C": [-1, 3, 2, 0, 1, 0],
+        "C#": [-1, 4, 3, 1, 2, 1],
+        "D": [-1, -1, 0, 2, 3, 2],
+        "D#": [-1, -1, 1, 3, 4, 3],
+        "E": [0, 2, 2, 1, 0, 0],
+        "F": [1, 3, 3, 2, 1, 1],
+        "F#": [2, 4, 4, 3, 2, 2],
+        "G": [3, 2, 0, 0, 0, 3],
+        "G#": [4, 3, 1, 1, 1, 4]
+    }
+
+    console.log(chord);
+
+    var frets = chords_to_play_mappings[chord]
+
+    context.resume().then(strum(frets));
+}
