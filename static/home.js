@@ -414,7 +414,7 @@ window.addEventListener('keydown', function (event) {
         "K": "C"
     }
 
-    console.log(keyboard_keys_to_notes[event.key.toUpperCase()]);
+    disp(keyboard_keys_to_notes[event.key.toUpperCase()]);
 
     if (isRecording())
         recordNote(event.key.toUpperCase());
@@ -458,9 +458,9 @@ window.addEventListener('keyup', function (event) {
 
 
 
-/* 
-Chords
-*/
+/********************************************************
+********************   Play Chords   ********************
+*********************************************************/
 
 const context = new AudioContext();
 
