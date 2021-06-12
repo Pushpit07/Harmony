@@ -27,6 +27,13 @@ body {
 	background: var(--theme-background);
 }
 
+.navbar-brand {
+	color: #2b2b2b !important;
+	font-weight: 600;
+	font-size: 1.2em !important;
+	text-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288) !important;
+}
+
 .toggle_chords_container {
 	width: 90%;
 	padding-top: 40px !important;
