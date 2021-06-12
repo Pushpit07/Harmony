@@ -4,6 +4,12 @@ Harmony is a platform created for musicians that helps in deriving chords in pos
 
 <br/>
 
+<a href="http://ec2-34-210-25-39.us-west-2.compute.amazonaws.com/">Visit website</a>
+
+<a href="https://youtu.be/PzxeoUs9KFI">YouTube</a>
+
+<br/>
+
 <img src="./assets/back1.png" alt="Background 1"/>
 
 <img src="./assets/back2.png" alt="Background 2"/>
