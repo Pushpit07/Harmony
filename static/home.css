@@ -27,11 +27,29 @@ body {
 	background: var(--theme-background);
 }
 
-.navbar-brand {
+.polyHarmony {
 	color: #2b2b2b !important;
 	font-weight: 600;
-	font-size: 1.2em !important;
-	text-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288) !important;
+	font-family: "Nunito Sans", sans-serif;
+	font-size: 1.3em !important;
+	text-shadow: -2px -2px 5px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288) !important;
+}
+
+@media (max-width: 850px) {
+	.toggle_chords_container.toggle_chords_container {
+		display: none !important;
+	}
+}
+
+@media (min-width: 850px) {
+	.not_compatible_container.not_compatible_container {
+		display: none !important;
+	}
+}
+
+.not_compatible_container {
+	width: 90%;
+	padding-top: 60px !important;
 }
 
 .toggle_chords_container {

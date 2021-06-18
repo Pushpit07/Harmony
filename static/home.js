@@ -231,9 +231,14 @@ $("#final_submit").click(function () {
 
     if (songChords.length === 0)
         return;
+
+    var i = 0;
     songChords.forEach(chord => {
         setTimeout(() => {
-            playChord(chord.key)
+            currNote = document.querySelector(`.piano_key[data-note="${songNotes[i].key}"]`);
+            playChord(chord.key);
+            playNote(currNote);
+            i++;
         }, chord.startTime)
     })
 });
@@ -566,7 +571,7 @@ function getFrequency(string, fret) {
 }
 
 function mute() {
-    dampening = 0.89;
+    dampening = 0.39;
 }
 
 function playChord(chord) {
