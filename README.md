@@ -1,6 +1,6 @@
-# Harmony
+# PolyHarmony
 
-Harmony is a platform created for musicians that helps in deriving chords in possible scales after taking an input of musical notes. In essence, harmony makes this task of figuring out chords for a particular melody easier and less time consuming.
+PolyHarmony is a platform created for musicians that helps in deriving chords in possible scales after taking an input of musical notes. In essence, harmony makes this task of figuring out chords for a particular melody easier and less time consuming.
 
 <br/>
 
